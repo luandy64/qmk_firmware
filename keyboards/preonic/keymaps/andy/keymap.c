@@ -36,7 +36,8 @@ enum preonic_keycodes {
   SPC_L2 = LT(_L2, KC_SPC),
   MAC_CUT = LGUI(KC_X),
   MAC_CPY = LGUI(KC_C),
-  MAC_PST = LGUI(KC_V)
+  MAC_PST = LGUI(KC_V),
+  MAC_LOCK = LCTL(LSFT(KC_POWER))
 };
 
 enum {
@@ -69,14 +70,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = {
     {KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12 },
     {_______, _______, _______, _______, _______, _______, KC_PLUS, KC_7,    KC_8,    KC_9,    KC_SLSH, KC_BSPC},
-    {KC_NO,   KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_EQL,  KC_MINS, KC_4,    KC_5,    KC_6,    KC_0,    KC_DEL },
-    {_______, _______, _______, _______, KC_BSLS, _______, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_DOT,  _______},
+    {KC_ESC,  KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_EQL,  KC_MINS, KC_4,    KC_5,    KC_6,    KC_0,    KC_DEL },
+    {_______, _______, _______, _______, _______, KC_BSLS, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_DOT,  _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 [_ADJUST] = {
     {KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,  KC_F12 },
-    {KC_NO,   RESET,   DEBUG,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_DEL },
+    {KC_NO,   RESET,   DEBUG,  MAC_LOCK, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_DEL },
     {KC_NO,   KC_NO,   MU_MOD,  AU_ON,   AU_OFF,  KC_NO,   KC_NO,   QWERTY,  KC_NO,   KC_NO,  KC_NO,   KC_CAPS},
     {KC_NO,   MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO  },
     {KC_NO,   _______, _______, _______, _______, KC_NO,   KC_NO,   _______, KC_NO,   KC_NO,  KC_NO,   KC_NO  }
