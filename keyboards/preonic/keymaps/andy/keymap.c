@@ -57,7 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, TD(TD_TICK)},
     {KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT},
     {KC_ESC , KC_LCTL, KC_LALT, KC_LGUI, LOWER  , KC_SPC , KC_SPC , RAISE  , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT}
-},
+},  // Should this last row get rid of the arrow keys? I don't think I use them
+    // very often I think I should get rid of the tap dance, or kick the time
+    // for it way down. I trigger it too often
 
 [_LOWER] = {
     {KC_NO  , KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______},
@@ -65,7 +67,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_ESC , KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO  , KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_TAB , KC_NO  },
     {_______, KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MUTE, KC_RGUI, KC_RALT, KC_RCTL, KC_NO  , _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG, CK_RST,  CK_UP  , CK_DOWN}
-},
+},  // I think this should be the numberpad for the right hand, like as standard
+    // as possible I think the mac cut copy and paste can go. I don't really use
+    // it and have gotten used to CMD-* The rightmost column could be a cool
+    // hotkey thing, so can the middle 2 columns I think the [] and {} should
+    // stack on the left middle and index finger. where row 2 is the shifted one
+    // Maybe parentheses can be the row 4 for those fingers That leaves 6 keys
+    // on the left pinky and ring finger
+    // I think I'll keep the clicky controls in the bottom row there on lower
 
 [_RAISE] = {
     {KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12 },
@@ -73,7 +82,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_ESC,  KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_EQL,  KC_MINS, KC_4,    KC_5,    KC_6,    KC_0,    KC_DEL },
     {_______, _______, _______, _______, _______, KC_BSLS, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_DOT,  _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
-},
+},  // I think the right hand should be arrow keys here, leaving 6-8 keys for
+    // the right pinky I like the shft,ctl,alt,gui thing I don't like the number
+    // row being the shifted version of the numbers, though I don't know what to
+    // replace it with
 
 [_ADJUST] = {
     {KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,  KC_F12 },
@@ -81,7 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_NO,   KC_NO,   MU_MOD,  AU_ON,   AU_OFF,  KC_NO,   KC_NO,   QWERTY,  KC_NO,   KC_NO,  KC_NO,   KC_CAPS},
     {KC_NO,   MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO  },
     {KC_NO,   _______, _______, _______, _______, KC_NO,   KC_NO,   _______, KC_NO,   KC_NO,  KC_NO,   KC_NO  }
-},
+},  // I want to move the media controls here and the volume control
+    // F* keys seem wasteful here.
+    // QWERTY can move to the right most column, DEL can leave
+    // I don't know what muv_de, muv_in, mu_on, and mu_off, and mi_on and mi_off or mu_mod
+    // reset can move with qwerty and caps_lock
 
 [_R2] = {
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
@@ -89,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
     {KC_NO  , _______, _______, _______, _______, KC_SPC , _______, _______, KC_NO,   KC_NO  , KC_NO  , KC_NO    }
-},
+},  // I can get rid of this
 
 [_L2] = {
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
@@ -97,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
     {KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, KC_HASH, },
     {KC_NO,   _______, _______, _______, _______, _______, KC_SPC , _______, KC_NO,   KC_NO,   KC_NO,   KC_NO    }
-}
+}  // I can get rid of this
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -128,7 +144,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case BACKLIT:
+        case BACKLIT:                     // I think this can be ripped out since I don't have lights
           if (record->event.pressed) {
             register_code(KC_RSFT);
             #ifdef BACKLIGHT_ENABLE
