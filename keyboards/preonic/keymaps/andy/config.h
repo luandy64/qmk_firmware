@@ -15,8 +15,18 @@
 #endif
 
 #define MUSIC_MASK (keycode < 0xFF)
+
+// ----------------------------------------------------------------------//
+// Audio Clicky Options
+// ----------------------------------------------------------------------//
 #define AUDIO_CLICKY
-#define AUDIO_CLICKY_ON
+// #define AUDIO_CLICKY_ON // Is this redundant?
+
+// Between 0f and 1.0f, default is 0.05f
+#define AUDIO_CLICKY_FREQ_RANDOMNESS 0.5f
+
+// ----------------------------------------------------------------------//
+
 #define TAPPING_TERM 200
 #define PREVENT_STUCK_MODIFIERS         
 /*
