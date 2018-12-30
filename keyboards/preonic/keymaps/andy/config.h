@@ -19,7 +19,6 @@
 
 //----------------------------------------------------------------------------//
 
->>>>>>> cfb19bdcb... Clean up comments
 #define TAPPING_TERM 200
 #define PREVENT_STUCK_MODIFIERS
 
