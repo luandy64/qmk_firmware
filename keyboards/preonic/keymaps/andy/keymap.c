@@ -22,7 +22,16 @@ enum preonic_keycodes {
   TMUX_LD = LCTL(KC_RBRC),
   TMUX_SC, // TMUX Scroll
   TMUX_LO = KC_D, // TMUX LogOut
-  MY_UNDS = LSFT(KC_MINS) // Underscore
+  MY_UNDS = LSFT(KC_MINS), // Underscore
+  K1,
+  K2,
+  K3,
+  K4,
+  K5,
+  K6,
+  K7,
+  K8,
+  K9
 };
 
 
@@ -59,12 +68,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = {
     {KC_F13 , KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22, KC_F23,  KC_F24 },
-    {KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MFFD, AU_ON,   AU_OFF,  KC_VOLU, KC_NO,   KC_NO,  KC_NO,   QWERTY },
-    {KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MPLY, MAC_LCK, MU_MOD,  KC_VOLD, KC_NO,   KC_NO,  KC_NO,   KC_CAPS},
-    {KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MRWD, MU_ON,   MU_OFF,  KC_MUTE, KC_NO,   KC_NO,  KC_NO,   RESET  },
+    {KC_NO,   K1,   K2,   K3,   KC_MFFD, AU_ON,   AU_OFF,  KC_VOLU, KC_NO,   KC_NO,  KC_NO,   QWERTY },
+    {KC_NO,   K4,   K5,   K6,   KC_MPLY, MAC_LCK, MU_MOD,  KC_VOLD, KC_NO,   KC_NO,  KC_NO,   KC_CAPS},
+    {KC_NO,   K7,   K8,   K9,   KC_MRWD, MU_ON,   MU_OFF,  KC_MUTE, KC_NO,   KC_NO,  KC_NO,   RESET  },
     {KC_NO,   _______, _______, _______, _______, KC_NO,   KC_NO,   _______, KC_NO,   KC_NO,  KC_NO,   DEBUG  }
   }                                      //HOLD//                   //HOLD//
 };
+
+#ifdef AUDIO_ENABLE
+float s1[][2] = SONG(NO_SOUND);
+//float s2[][2] = SONG(MARIO_MUSHROOM);
+float s2[][2] = SONG(NO_SOUND);
+float s3[][2] = SONG(NO_SOUND);
+float s4[][2] = SONG(MARIO_THEME);
+float s5[][2] = SONG(MARIO_MUSHROOM);
+float s6[][2] = SONG(MARIO_GAMEOVER);
+float s7[][2] = SONG(NO_SOUND);
+float s8[][2] = SONG(NO_SOUND);
+float s9[][2] = SONG(NO_SOUND);
+#endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -97,6 +119,51 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TMUX_SC:
       if (record->event.pressed){
         SEND_STRING(SS_LCTRL("]")"[");
+      }
+      break;
+    case K1:
+      if (record->event.pressed){
+        PLAY_SONG(s1);
+      }
+      break;
+    case K2:
+      if (record->event.pressed){
+        PLAY_SONG(s2);
+      }
+      break;
+    case K3:
+      if (record->event.pressed){
+        PLAY_SONG(s3);
+      }
+      break;
+    case K4:
+      if (record->event.pressed){
+        PLAY_SONG(s4);
+      }
+      break;
+    case K5:
+      if (record->event.pressed){
+        PLAY_SONG(s5);
+      }
+      break;
+    case K6:
+      if (record->event.pressed){
+        PLAY_SONG(s6);
+      }
+      break;
+    case K7:
+      if (record->event.pressed){
+        PLAY_SONG(s7);
+      }
+      break;
+    case K8:
+      if (record->event.pressed){
+        PLAY_SONG(s8);
+      }
+      break;
+    case K9:
+      if (record->event.pressed){
+        PLAY_SONG(s9);
       }
       break;
   }

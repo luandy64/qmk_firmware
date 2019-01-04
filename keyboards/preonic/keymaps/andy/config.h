@@ -7,15 +7,21 @@
 
 #ifdef AUDIO_ENABLE
 #define STARTUP_SONG SONG(ZELDA_TREASURE)
-#define DEFAULT_LAYER_SONGS { SONG(ONE_UP_SOUND) }
+#define GOODBYE_SONG SONG(OLD_SPICE)
+#define DEFAULT_LAYER_SONGS { SONG(STARTUP_SOUND) }
 #endif // AUDIO_ENABLE
 
 //----------------------------------------------------------------------------//
 
 #define AUDIO_CLICKY
 
+// default is 440.0f
+// default min is 65.0f
+// default max is 1500.0f
+#define AUDIO_CLICKY_FREQ_DEFAULT 80.0f
+
 // Between 0f and 1.0f, default is 0.05f
-#define AUDIO_CLICKY_FREQ_RANDOMNESS 0.5f
+#define AUDIO_CLICKY_FREQ_RANDOMNESS 0.06f
 
 //----------------------------------------------------------------------------//
 
