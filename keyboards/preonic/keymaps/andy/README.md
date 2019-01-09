@@ -63,6 +63,8 @@ the codebase- and a backwards incompatible one at that. I don't think that
 mental model fits what I'm doing here. I just wanted a way to group
 similar keymaps and track work on them in a meaningful way.
 
+In earlier commits, the code that gets written to the Pro Micro takes up somewhere around 92% of the memory. I don't know how that affects things in the grand scheme of things; however, I added a few `#define`s that reduce the amount of memory used to about 84%. To use all of this new space, I want to add more macros and maybe a layer for these macros. 
+
 ### Version Cuts
 
 - `1.0.0` every iteration of the keymap where the defining features were

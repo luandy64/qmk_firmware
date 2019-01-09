@@ -28,4 +28,13 @@
 #define TAPPING_TERM 200
 #define PREVENT_STUCK_MODIFIERS
 
+//----------------------------------------------------------------------------//
+
+// Disabling features to cut down code size
+#define NO_DEBUG
+#define NO_PRINT
+#define NO_ACTION_TAPPING
+#define NO_ACTION_ONESHOT
+
+//----------------------------------------------------------------------------//
 #endif // CONFIG_USER_H
