@@ -14,50 +14,45 @@ enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  BACKLIT,
-  MAC_CUT = LGUI(KC_X),
-  MAC_CPY = LGUI(KC_C),
-  MAC_PST = LGUI(KC_V),
-  MAC_LCK = LCTL(LSFT(KC_POWER)),
   TMUX_LD = LCTL(KC_RBRC),
   TMUX_SC, // TMUX Scroll
-  TMUX_LO = KC_D, // TMUX LogOut
+  TMUX_LO, // TMUX LogOut
   MY_UNDS = LSFT(KC_MINS), // Underscore
-  K1,
-  K2,
-  K3,
-  K4,
-  K5,
-  K6,
-  K7,
-  K8,
-  K9
+  MY_LCUR = LSFT(KC_LBRC),
+  MY_RCUR = LSFT(KC_RBRC),
+  TMUX_0, // tmux to window 0
+  TMUX_1, // tmux to window 1
+  TMUX_2, // tmux to window 2
+  TMUX_3, // tmux to window 3
+  TMUX_4, // tmux to window 4
+  EMC_VER,
+  EMC_OTH
 };
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = {
-    {KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,  KC_BSPC},
-    {KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   ,  KC_ENT },
-    {KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN,  KC_QUOT},
-    {KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH,  KC_RSFT},
-    {KC_ESC , KC_LCTL, KC_LALT, KC_LGUI, LOWER  , KC_SPC , KC_SPC , RAISE  , KC_RALT, KC_RGUI, KC_RCTRL, KC_DEL }
+    {KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC},
+    {KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_ENT },
+    {KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT},
+    {KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT},
+    {KC_ESC , KC_LCTL, KC_LALT, KC_LGUI, LOWER  , KC_SPC , KC_SPC , RAISE  , KC_RALT, KC_RGUI, KC_RCTL, KC_DEL }
   },
 
   [_LOWER] = {
-    {KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12 },
-    {KC_MUTE, KC_VOLD, KC_VOLU, KC_LCBR, KC_RCBR, MY_UNDS, KC_PLUS, KC_7,    KC_8,    KC_9,    KC_SLSH, KC_NO  },
-    {_______, _______, _______, KC_LBRC, KC_RBRC, KC_EQL , KC_MINS, KC_4,    KC_5,    KC_6,    KC_0   , KC_NO  },
-    {_______, _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_DOT , _______},
+    {KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 },
+    {KC_MUTE, KC_VOLD, KC_VOLU, MY_LCUR, MY_RCUR, MY_UNDS, KC_PLUS, KC_7   , KC_8   , KC_9   , KC_SLSH, KC_NO  },
+    {_______, _______, _______, KC_LBRC, KC_RBRC, KC_EQL , KC_MINS, KC_4   , KC_5   , KC_6   , KC_0   , KC_NO  },
+    {_______, _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, KC_ASTR, KC_1   , KC_2   , KC_3   , KC_DOT , _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG, CK_RST , CK_UP  , CK_DOWN}
   },                                     //HOLD//
 
   [_RAISE] = {
     {KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 },
-    {_______, KC_NO  , MAC_CUT, MAC_CPY, MAC_PST, KC_NO  , KC_NO  , KC_NO  , KC_UP  , KC_NO  , KC_NO  , _______},
+    {_______, KC_NO  , KC_NO  , KC_NO  , EMC_VER, EMC_OTH, KC_NO  , KC_NO  , KC_UP  , KC_NO  , KC_NO  , _______},
     {KC_ESC , KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO  , KC_NO  , KC_LEFT, KC_DOWN, KC_RGHT, KC_TAB , KC_DEL },
-    {_______, KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , TMUX_LD, TMUX_SC, TMUX_LO, KC_NO  , _______},
+    {_______, TMUX_0 , TMUX_1 , TMUX_2 , TMUX_3 , TMUX_4 , KC_NO  , TMUX_LD, TMUX_SC, TMUX_LO, KC_NO  , _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG, CK_RST , CK_UP  , CK_DOWN}
   },                                                                //HOLD//
 
@@ -67,26 +62,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // MU_MOD - Cycle through the music modes:
 
   [_ADJUST] = {
-    {KC_F13 , KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22, KC_F23,  KC_F24 },
-    {KC_NO,   K1,   K2,   K3,   KC_MFFD, AU_ON,   AU_OFF,  KC_VOLU, KC_NO,   KC_NO,  KC_NO,   QWERTY },
-    {KC_NO,   K4,   K5,   K6,   KC_MPLY, MAC_LCK, MU_MOD,  KC_VOLD, KC_NO,   KC_NO,  KC_NO,   KC_CAPS},
-    {KC_NO,   K7,   K8,   K9,   KC_MRWD, MU_ON,   MU_OFF,  KC_MUTE, KC_NO,   KC_NO,  KC_NO,   RESET  },
-    {KC_NO,   _______, _______, _______, _______, KC_NO,   KC_NO,   _______, KC_NO,   KC_NO,  KC_NO,   DEBUG  }
+
+    {KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MFFD, AU_ON  , AU_OFF , KC_VOLU, KC_NO  , KC_NO  , KC_NO  , QWERTY },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_VOLD, KC_NO  , KC_NO  , KC_NO  , KC_CAPS},
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_MUTE, KC_NO  , KC_NO  , KC_NO  , RESET  },
+    {KC_NO  , _______, _______, _______, _______, KC_NO  , KC_NO  , _______, KC_NO  , KC_NO  , KC_NO  , DEBUG  }
   }                                      //HOLD//                   //HOLD//
 };
 
-#ifdef AUDIO_ENABLE
-float s1[][2] = SONG(NO_SOUND);
-//float s2[][2] = SONG(MARIO_MUSHROOM);
-float s2[][2] = SONG(NO_SOUND);
-float s3[][2] = SONG(NO_SOUND);
-float s4[][2] = SONG(MARIO_THEME);
-float s5[][2] = SONG(MARIO_MUSHROOM);
-float s6[][2] = SONG(MARIO_GAMEOVER);
-float s7[][2] = SONG(NO_SOUND);
-float s8[][2] = SONG(NO_SOUND);
-float s9[][2] = SONG(NO_SOUND);
-#endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -95,7 +79,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
-      break;
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
@@ -105,7 +88,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
       }
       return false;
-      break;
     case RAISE:
       if (record->event.pressed) {
         layer_on(_RAISE);
@@ -115,57 +97,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
       }
       return false;
-      break;
     case TMUX_SC:
       if (record->event.pressed){
-        SEND_STRING(SS_LCTRL("]")"[");
+        SEND_STRING(SS_LCTRL("]"));
+        SEND_STRING("[");
       }
-      break;
-    case K1:
+      return false;
+    case TMUX_LO:
       if (record->event.pressed){
-        PLAY_SONG(s1);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_D));
       }
-      break;
-    case K2:
+      return false;
+    case TMUX_0:
       if (record->event.pressed){
-        PLAY_SONG(s2);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_0));
       }
-      break;
-    case K3:
+      return false;
+    case TMUX_1:
       if (record->event.pressed){
-        PLAY_SONG(s3);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_1));
       }
-      break;
-    case K4:
+      return false;
+    case TMUX_2:
       if (record->event.pressed){
-        PLAY_SONG(s4);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_2));
       }
-      break;
-    case K5:
+      return false;
+    case TMUX_3:
       if (record->event.pressed){
-        PLAY_SONG(s5);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_3));
       }
-      break;
-    case K6:
+      return false;
+    case TMUX_4:
       if (record->event.pressed){
-        PLAY_SONG(s6);
+        SEND_STRING(SS_LCTRL("]")SS_TAP(X_4));
       }
-      break;
-    case K7:
+      return false;
+    case EMC_VER:
       if (record->event.pressed){
-        PLAY_SONG(s7);
+        SEND_STRING(SS_LCTRL("x")SS_TAP(X_3));
       }
-      break;
-    case K8:
+      return false;
+    case EMC_OTH:
       if (record->event.pressed){
-        PLAY_SONG(s8);
+        SEND_STRING(SS_LCTRL("x")SS_TAP(X_O));
       }
-      break;
-    case K9:
-      if (record->event.pressed){
-        PLAY_SONG(s9);
-      }
-      break;
+      return false;
   }
   return true;
 };
