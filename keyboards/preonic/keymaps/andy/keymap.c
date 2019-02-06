@@ -1,12 +1,23 @@
 #include "preonic.h"
 #include "action_layer.h"
 
+#define TMUX_LD LCTL(KC_RBRC)
+#define MY_UNDS LSFT(KC_MINS)
+#define MY_LCUR LSFT(KC_LBRC)
+#define MY_RCUR LSFT(KC_RBRC)
+#define LAY_OFF TO(_QWERTY)
+#define PRM_ARR TG(_ARR)
+#define PRM_NUM TG(_NUM)
+#define EMC_OUP LALT(KC_PGUP)
+#define EMC_ODN LALT(KC_PGDN)
 
 enum preonic_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _ADJUST
+  _ADJUST,
+  _ARR,
+  _NUM
 };
 
 
@@ -14,12 +25,8 @@ enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  TMUX_LD = LCTL(KC_RBRC),
   TMUX_SC, // TMUX Scroll
   TMUX_LO, // TMUX LogOut
-  MY_UNDS = LSFT(KC_MINS), // Underscore
-  MY_LCUR = LSFT(KC_LBRC),
-  MY_RCUR = LSFT(KC_RBRC),
   TMUX_0, // tmux to window 0
   TMUX_1, // tmux to window 1
   TMUX_2, // tmux to window 2
@@ -61,12 +68,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // MU_TOG - Toggle music mode
 // MU_MOD - Cycle through the music modes:
 
-  [_ADJUST] = {
+  [_ARR] = {
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_UP  , KC_NO  , KC_NO  , KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_LEFT, KC_DOWN, KC_RGHT, KC_NO  , KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  },
+    {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LAY_OFF}
+  },
 
+  [_NUM] = {
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_7   , KC_8   , KC_9   , KC_SLSH, KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_4   , KC_5   , KC_6   , KC_0   , KC_NO  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_1   , KC_2   , KC_3   , KC_DOT , KC_NO  },
+    {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LAY_OFF}
+  },
+
+  [_ADJUST] = {
     {KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 },
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MFFD, AU_ON  , AU_OFF , KC_VOLU, KC_NO  , KC_NO  , KC_NO  , QWERTY },
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_VOLD, KC_NO  , KC_NO  , KC_NO  , KC_CAPS},
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_MUTE, KC_NO  , KC_NO  , KC_NO  , RESET  },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MFFD, AU_ON  , AU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , QWERTY },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_NO  , PRM_ARR, PRM_NUM, KC_NO  , KC_CAPS},
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RESET  },
     {KC_NO  , _______, _______, _______, _______, KC_NO  , KC_NO  , _______, KC_NO  , KC_NO  , KC_NO  , DEBUG  }
   }                                      //HOLD//                   //HOLD//
 };
