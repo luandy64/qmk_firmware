@@ -1,15 +1,17 @@
 #include "preonic.h"
 #include "action_layer.h"
 
+// My Aliases
 #define TMUX_LD LCTL(KC_RBRC)
-#define MY_UNDS LSFT(KC_MINS)
+#define MY_UNDS LSFT(KC_MINS) // Underscore
 #define MY_LCUR LSFT(KC_LBRC)
 #define MY_RCUR LSFT(KC_RBRC)
-#define LAY_OFF TO(_QWERTY)
-#define PRM_ARR TG(_ARR)
-#define PRM_NUM TG(_NUM)
-#define EMC_OUP LALT(KC_PGUP)
-#define EMC_ODN LALT(KC_PGDN)
+#define EMC_OUP LALT(KC_PGUP) // Emacs Scroll Other Window Up
+#define EMC_ODN LALT(KC_PGDN) // Emacs Scroll Other Window Down
+#define LAY_OFF TO(_QWERTY)   // Turn off all layers but the default
+#define PRM_ARR TG(_ARR)      // Persistant Arrow keys
+#define PRM_NUM TG(_NUM)      // Persistant Numpad
+
 
 enum preonic_layers {
   _QWERTY,
@@ -32,8 +34,8 @@ enum preonic_keycodes {
   TMUX_2, // tmux to window 2
   TMUX_3, // tmux to window 3
   TMUX_4, // tmux to window 4
-  EMC_VER,
-  EMC_OTH
+  EMC_VER, // Emacs Vertical Split
+  EMC_OTH, // Emacs Go To Other Window
 };
 
 
@@ -49,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = {
     {KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 },
-    {KC_MUTE, KC_VOLD, KC_VOLU, MY_LCUR, MY_RCUR, MY_UNDS, KC_PLUS, KC_7   , KC_8   , KC_9   , KC_SLSH, KC_NO  },
+    {KC_MUTE, KC_VOLD, KC_VOLU, KC_LCBR, KC_RCBR, MY_UNDS, KC_PLUS, KC_7   , KC_8   , KC_9   , KC_SLSH, KC_NO  },
     {_______, _______, _______, KC_LBRC, KC_RBRC, KC_EQL , KC_MINS, KC_4   , KC_5   , KC_6   , KC_0   , KC_NO  },
     {_______, _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, KC_ASTR, KC_1   , KC_2   , KC_3   , KC_DOT , _______},
     {_______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG, CK_RST , CK_UP  , CK_DOWN}
