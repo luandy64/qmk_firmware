@@ -15,13 +15,12 @@
 
 enum preonic_layers {
   _QWERTY,
+  _ARR,
+  _NUM,
   _LOWER,
   _RAISE,
-  _ADJUST,
-  _ARR,
-  _NUM
+  _ADJUST
 };
-
 
 enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
@@ -48,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT},
     {KC_ESC , KC_LCTL, KC_LALT, KC_LCTL, LOWER  , KC_SPC , KC_SPC , RAISE  , KC_RALT, KC_RGUI, KC_RCTL, KC_DEL }
   },
-
+4
   [_LOWER] = {
     {KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 },
     {KC_MUTE, KC_VOLD, KC_VOLU, KC_LCBR, KC_RCBR, MY_UNDS, KC_PLUS, KC_7   , KC_8   , KC_9   , KC_SLSH, KC_NO  },
@@ -70,6 +69,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // MU_TOG - Toggle music mode
 // MU_MOD - Cycle through the music modes:
 
+  [_ADJUST] = {
+    {KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MFFD, AU_ON  , AU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , QWERTY },
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_NO  , PRM_ARR, PRM_NUM, KC_NO  , KC_CAPS},
+    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RESET  },
+    {KC_NO  , _______, _______, _______, _______, KC_NO  , KC_NO  , _______, KC_NO  , KC_NO  , KC_NO  , DEBUG  }
+  },                                     //HOLD//                   //HOLD//
+
   [_ARR] = {
     {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  },
     {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_UP  , KC_NO  , KC_NO  , KC_NO  },
@@ -84,15 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_4   , KC_5   , KC_6   , KC_0   , KC_NO  },
     {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_1   , KC_2   , KC_3   , KC_DOT , KC_NO  },
     {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LAY_OFF}
-  },
-
-  [_ADJUST] = {
-    {KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 },
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MFFD, AU_ON  , AU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , QWERTY },
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_NO  , PRM_ARR, PRM_NUM, KC_NO  , KC_CAPS},
-    {KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RESET  },
-    {KC_NO  , _______, _______, _______, _______, KC_NO  , KC_NO  , _______, KC_NO  , KC_NO  , KC_NO  , DEBUG  }
-  }                                      //HOLD//                   //HOLD//
+  }
 };
 
 
