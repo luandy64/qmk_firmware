@@ -26,6 +26,18 @@
 #define DESK_10 LALT(KC_F10)
 #define DESK_11 LALT(KC_F11)
 #define DESK_12 LALT(KC_F12)
+#define QS_F1   HYPR(KC_F1)
+#define QS_F2   HYPR(KC_F2)
+#define QS_F3   HYPR(KC_F3)
+#define QS_F4   HYPR(KC_F4)
+#define QS_F5   HYPR(KC_F5)
+#define QS_F6   HYPR(KC_F6)
+#define QS_F7   HYPR(KC_F7)
+#define QS_F8   HYPR(KC_F8)
+#define QS_F9   HYPR(KC_F9)
+#define QS_F10  HYPR(KC_F10)
+#define QS_F11  HYPR(KC_F11)
+#define QS_F12  HYPR(KC_F12)
 
 
 enum preonic_layers {
@@ -109,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT_preonic_grid( \
   KC_F13 , KC_F14 , KC_F15 , KC_F16 , KC_F17 , KC_F18 , KC_F19 , KC_F20 , KC_F21 , KC_F22 , KC_F23 , KC_F24 , \
   KC_NO  , KC_NO  , KC_NO  , DESK_1 , KC_MFFD, AU_ON  , AU_OFF , KC_BRIU, SCR_LFT, FUL_SCR, SCR_RGT, QWERTY , \
-  KC_NO  , UC(0x160), UC(0x0161), KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_BRID, PRM_ARR, PRM_NUM, KC_NO  , KC_CAPS, \
+  KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MPLY, KC_NO  , MU_MOD , KC_BRID, PRM_ARR, PRM_NUM, KC_NO  , KC_CAPS, \
   KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_MRWD, MU_ON  , MU_OFF , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RESET  , \
   KC_NO  , _______, _______, _______, _______, KC_NO  , KC_NO  , _______, KC_NO  , KC_NO  , KC_NO  , DEBUG    \
 ),
@@ -124,9 +136,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_CUT] = LAYOUT_preonic_grid( \
   KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , CK_TOGG, CK_RST , CK_UP  , CK_DOWN, \
-  KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , DESK_1 , DESK_2 , DESK_3 , DESK_4 , KC_NO,   \
-  KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , NEW_TAB, KC_NO  , DESK_5 , DESK_6 , DESK_7 , DESK_8 , KC_NO,   \
-  KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , DESK_9 , DESK_10, DESK_11, DESK_12, KC_NO,   \
+  KC_NO  , QS_F1  , QS_F2  , QS_F3  , QS_F4  , KC_NO  , KC_NO  , DESK_1 , DESK_2 , DESK_3 , DESK_4 , KC_NO, \
+  KC_NO  , QS_F5  , QS_F6  , QS_F7  , QS_F8  , NEW_TAB, KC_NO  , DESK_5 , DESK_6 , DESK_7 , DESK_8 , KC_NO,   \
+  KC_NO  , QS_F9  , QS_F10 , QS_F11 , QS_F12 , KC_NO  , KC_NO  , DESK_9 , DESK_10, DESK_11, DESK_12, KC_NO,   \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
